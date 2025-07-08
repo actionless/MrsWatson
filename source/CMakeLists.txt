@@ -38,6 +38,7 @@ set(core_SOURCES
   plugin/PluginPreset.c
   plugin/PluginPresetFxp.c
   plugin/PluginPresetInternalProgram.c
+  plugin/PluginPresetManual.c
   plugin/PluginSilence.c
   plugin/PluginVst2x.cpp
   plugin/PluginVst2xHostCallback.cpp
@@ -82,6 +83,7 @@ set(core_HEADERS
   plugin/PluginPreset.h
   plugin/PluginPresetFxp.h
   plugin/PluginPresetInternalProgram.h
+  plugin/PluginPresetManual.h
   plugin/PluginSilence.h
   plugin/PluginVst2x.h
   plugin/PluginVst2xHostCallback.h

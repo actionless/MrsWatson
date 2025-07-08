@@ -31,11 +31,13 @@
 #include "base/LinkedList.h"
 #include "plugin/Plugin.h"
 #include "plugin/PluginPreset.h"
+#include "plugin/PluginPresetManual.h"
 #include "time/TaskTimer.h"
 
 #define MAX_PLUGINS 8
 #define CHAIN_STRING_PLUGIN_SEPARATOR ';'
 #define CHAIN_STRING_PROGRAM_SEPARATOR ','
+#define CHAIN_STRING_PROGRAM_DATA_SEPARATOR ':'
 
 typedef struct {
   unsigned int numPlugins;

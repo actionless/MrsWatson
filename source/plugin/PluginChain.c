@@ -86,7 +86,9 @@ boolByte pluginChainAddFromArgumentString(PluginChain pluginChain,
   char *endChar;
   CharString pluginNameBuffer = NULL;
   CharString presetNameBuffer = NULL;
+  CharString presetDataBuffer = NULL;
   char *presetSeparator;
+  char *presetDataSeparator;
   PluginPreset preset;
   Plugin plugin;
   size_t substringLength;
@@ -132,6 +134,29 @@ boolByte pluginChainAddFromArgumentString(PluginChain pluginChain,
       logInfo("Opening preset '%s' for plugin", presetNameBuffer->data);
       preset = pluginPresetFactory(presetNameBuffer);
     }
+
+///////////////////////////////////////////////////////////////////////////////
+
+    // Look for the separator for presets to load into these plugins
+    freeCharString(presetDataBuffer);
+    presetDataBuffer = newCharString();
+    presetDataSeparator =
+        strchr(pluginNameBuffer->data, CHAIN_STRING_PROGRAM_DATA_SEPARATOR);
+
+    if (presetDataSeparator != NULL) {
+      // Null-terminate this string to force it to end, then extract preset name
+      // from next char
+      *presetDataSeparator = '\0';
+      strncpy(presetDataBuffer->data, presetDataSeparator + 1,
+              strlen(presetDataSeparator + 1));
+    }
+
+    if (strlen(presetDataBuffer->data) > 0) {
+      logInfo("Loading preset data '%s' for plugin '%s'", presetDataBuffer->data, pluginNameBuffer->data);
+	  preset = manualPluginPresetFactory(presetDataBuffer);
+    }
+
+///////////////////////////////////////////////////////////////////////////////
 
     // Guess the plugin type from the file extension, search root, etc.
     plugin = pluginFactory(pluginNameBuffer, userSearchPath);
