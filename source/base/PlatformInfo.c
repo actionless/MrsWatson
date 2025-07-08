@@ -98,6 +98,10 @@ static CharString _getPlatformName(void) {
   charStringCopyCString(result, _getShortPlatformName());
   _getMacVersionString(result);
 #elif LINUX
+  if (1 == 1) {
+	  charStringCopyCString(result, "Linux FTW");
+	  return result;
+  }
   CharString distributionName = newCharString();
   struct utsname systemInfo;
   File lsbRelease = NULL;
