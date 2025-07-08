@@ -32,7 +32,7 @@
 
 #include <stdlib.h>
 
-static const size_t kCharStringLengthDefault = 256;
+static const size_t kCharStringLengthDefault = 1024;
 static const size_t kCharStringLengthShort = 32;
 static const size_t kCharStringLengthLong = 8192;
 
