@@ -241,7 +241,8 @@ Waves), use --display-info to get a list of sub-plugin ID's and then use a colon
 to indicate which plugin to load. Examples:\n\n\
 \t--plugin LFX-1310\n\
 \t--plugin 'AutoTune,KayneWest.fxp;Compressor,SoftKnee.fxp;Limiter' (choose FXP preset)\n\
-\t--plugin '/usr/lib/vst/DragonflyHallReverb-vst.so:0=0.0;mrs_limiter' (define preset manually)\n\
+\t--plugin '/usr/lib/vst/DragonflyHallReverb-vst.so:0=0.0;mrs_limiter' (define preset value manually)\n\
+\t--plugin '/usr/lib/vst/DragonflyHallReverb-vst.so:0=0.0&1=0.75&3=0.33;mrs_limiter' (define preset values manually)\n\
 \t--plugin 'WavesShell-VST' --display-info (list shell sub-plugins)\n\
 \t--plugin 'WavesShell-VST:IDFX' (load a shell plugins)",
           HAS_SHORT_FORM, kProgramOptionTypeString,
