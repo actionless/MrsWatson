@@ -31,8 +31,8 @@ cmake \
 	"-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG -fmessage-length=0 -pipe -Waddress -Wchar-subscripts -Wcomment -Wformat -Wmissing-field-initializers -Wno-trigraphs -Wnonnull -Wparentheses -Wreturn-type -Wsequence-point -Wshadow -Wsign-compare -Wstrict-aliasing -Wstrict-overflow=1 -Wswitch -Wswitch-default -Wtrigraphs -Wuninitialized -Wunused-label -Wunused-value -Wunused-variable -Wvolatile-register-var -Wmaybe-uninitialized -Wc++11-compat -Wreorder     -I /usr/src/vst2sdk/pluginterfaces/vst2.x/ -Wno-error=deprecated-declarations -Wno-error=maybe-uninitialized  -Wno-error=alloc-size-larger-than=" \
 	"-DCMAKE_EXE_LINKER_FLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now          -Wl,-z,pack-relative-relocs -flto=auto -L$repo_dir/build/lib64 -L$repo_dir/build/lib32" \
 	..
-make
+make -j
 
 cd "$repo_dir"
-mv vendor.bak/{flac,flac-config} vendor/
 cp vendor/CMakeLists_original.txt vendor/CMakeLists.txt
+mv vendor.bak/{flac,flac-config} vendor/
